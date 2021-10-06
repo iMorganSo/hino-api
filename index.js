@@ -7,7 +7,22 @@ client.on("ready", () => {
 })
 
 function API(request, send, fetch, set, add, remove) {
-
+/**
+@const { API }[API]:[moduleRequest]Required!Important
+@var { API }[Request]:[excute]Required
+@var { API }[Send]:[excute]Required
+@var { API }[Fetch]:[excute]Option
+@var { API }[Set]:[export]Option
+@var { API }[Add]:[async]Option
+@var { API }[Remove]:[async]Option
+*/
+HttpsRequest = "https://hino.gq/api"["startsWith".replace("http://hino.gq/api")]
+request = { API }["excute"]["Required"];
+send = { API }["excute"]["Required"];
+fetch = { API }["excute"]["Option"];
+set = { API }["excute"]["Option"];
+add = { API }["excute"]["Option"];
+remove = { API }["excute"]["Option"]
 }
 
 API.addCommand = async function(commands, create, remove) { 
@@ -63,3 +78,9 @@ client.on("messageCreate", message => {
 })
 
 client.login(process.env.TOKEN);
+
+new Event(API, Array.from(String(API), os => {
+    void API, os >> toString(void APII.apiIntents)>> APII.clientEvent, static => {
+        static(APII.clientEvent)
+    }
+}))
