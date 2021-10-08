@@ -1,1 +1,1 @@
-const { API, Database } = require('./index.js')
+const { API, Database } = require('./index.js');
