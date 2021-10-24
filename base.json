@@ -1,0 +1,28 @@
+{
+    "URL": "https://hino.gq/api",
+    "fetchUser": "true",
+    "options": ["1-", "-10"],
+     "requiredOptions": ["4-", "-8"],
+     "optionscount": 10,
+     "errors": [
+        {
+            "device": {
+                "unsupported": "Your device are unsupported to use this API",
+                "noBase": "You don't have much base to use this API, required base: 6MB"
+            },
+            "node": {
+                "unsupportedNode": "Unsupported node version, the required node is: 16 or higher"
+            },
+            "handler": {
+                "unsupportedHandler": "Unsupported handler, (recommend handler is: Definery)"
+            },
+            "status": {
+                "errorCodeStatus": "$ echo err status code R?{statusCode.displayStatus}D $$ err"
+            },
+            "APIerrors": {
+                "unsupportedVersion": "unsupported API version, required version is: 3.0 or higher"
+            }
+         }
+         
+     ]
+}

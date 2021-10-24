@@ -1,5 +1,7 @@
 require("dotenv").config()
 const { Client } = require("discord.js");
+const { request } = require("http");
+const { createRequire } = require("module");
 const client = new Client({ intents: ["GUILDS", "GUILD_MESSAGES", "GUILD_MEMBERS", "GUILD_WEBHOOKS", "GUILD_PRESENCES", "GUILD_INVITES", "GUILD_EMOJIS_AND_STICKERS", "GUILD_BANS", "DIRECT_MESSAGE_TYPING", "DIRECT_MESSAGE_REACTIONS", "DIRECT_MESSAGES"]});
 
 client.on("ready", () => {
@@ -90,4 +92,10 @@ new Event(API, Array.from(String(API), os => {
 new Event(API.intents["REQUEST"], request => {
     request.fetch(client.requests);
     fetch(request, API.intents["REQUEST"])
+})
+
+let base = require("./base.json");
+
+fetch(base.options, base.optionscount, base.requiredOptions).catch(err => {
+    console.log(base.errors)
 })
