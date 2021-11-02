@@ -1,41 +1,32 @@
 require("dotenv").config()
 let fetch = require("node-fetch")
-const { Client, Message, MessageEmbed } = require("discord.js");
-const client = new Client({ intents: ["GUILDS", "GUILD_MESSAGES", "GUILD_MEMBERS", "GUILD_WEBHOOKS", "GUILD_PRESENCES", "GUILD_INVITES", "GUILD_EMOJIS_AND_STICKERS", "GUILD_BANS", "DIRECT_MESSAGE_TYPING", "DIRECT_MESSAGE_REACTIONS", "DIRECT_MESSAGES"]});
-
-client.on("ready", () => {
-    console.log(`connected with ${client.user.tag}!`);
-    let channel = client.channels.cache.get("893849568800808960");
-    //channel.send("> :white_check_mark: API connected `Developer mode`")
-})
-
-if(client.ws.ping == NaN) {
-    client.ws.ping = "Cannot get latency"
-}
-
 let API = {
-    name: "Hino_API",
-    URL: "https://hino.gq/api",
-    version: "3.3",
-    latency: client.ws.ping,
-    shards_count: "2",
-    shards: {
+    "name": "Hino_API",
+    "url": "https://hino.gq/api",
+    "license": "MIT",
+    "version": "3.3",
+    "shards_count": "2",
+    "shards": {
         "shard1": {
             "name": "Shard 1",
             "version": "1.0",
             "users": "soon",
             "servers": "soon",
-            "latency": `${client.ws.ping * Date.now()}ms`,
-            "type": "Default shard"
+            "type": "Default shard",
+            "path": "./api/shards/shard1"
         },
         "shard2": {
             "name": "Shard 2",
             "version": "1.0",
             "users": "soon",
             "servers": "soon",
-            "latency": `${client.ws.ping}ms`,
-            "type": "Helper shard"
+            "type": "Second shard",
+            "path": "./api/shards/shard2"
         }
+    },
+    "client": {
+        "banner": "https://i.imgur.com/wCicMxx.png",
+        "version": "6.6",
     },
     "error": {
         "device": {
@@ -63,52 +54,14 @@ let API = {
             "undefinedGuild": "This guild are undefined by local",
             "undefinedUser": "This user are undefined by local",
             "notDeveloper": "You are not developer",
-            "undefinedDeveloper": "This developer are undefined by client catcher"
+            "undefinedDeveloper": "This developer are undefined by client catcher",
+            "notResponding": "Hino are doesn't responding right now try later"
         }
      } 
 }
 
-
-client.login(process.env.TOKEN);
+async function fetching() {
+    await API.error.clientErrors["notDeveloper"]
+}
 
 let base = require("./base.json");
-
-client.on("messageCreate", message => {
-    if(message.content.startsWith("lu.api")) {
-        let embed = new MessageEmbed()
-        .setAuthor("API info", client.user.displayAvatarURL({ dynamic: true }))
-        .addFields({
-name: "> API",
-value: `\`\`\`js
-name: ${API.name}
-version: ${API.version}
-URL: ${API.URL}
-Latency: ${client.ws.ping}
-Shards: ${API.shards_count}
-\`\`\``
-        }, {
-            name: "Shard 1",
-            value: `\`\`\`js
-Version: ${API.shards.shard1["version"]},
-Type: ${API.shards.shard1["type"]}
-            \`\`\``,
-            inline: true
-        }, {
-            name: "Shard 2",
-            value: `\`\`\`js
-Version: ${API.shards.shard2["version"]},
-Type: ${API.shards.shard2["type"]}
-            \`\`\``,
-            inline: true
-        })
-        .setColor("#f2af66")
-        .setImage("https://i.imgur.com/wCicMxx.png")
-        message.reply({embeds: [embed]})
-    }
-})
-
-client.on("messageCreate", message => {
-    if(message.content.startsWith("lu.ping")) {
-        message.reply({content: `${client.ws.ping}`})
-    }
-})

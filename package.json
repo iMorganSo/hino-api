@@ -1,6 +1,27 @@
 {
   "dependencies": {
-    "discord.js": "^13.3.0",
+    "discord.js": "^13.3.1",
     "dotenv": "^10.0.0"
-  }
+  },
+  "name": "hino.api",
+  "version": "4.0.3",
+  "description": "Package for Hino's Discord bot API",
+  "main": "index.js",
+  "scripts": {
+    "test": "api-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iIEkoT/hino-api.git"
+  },
+  "keywords": [
+    "api",
+    "hino"
+  ],
+  "author": "!ekot",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iIEkoT/hino-api/issues"
+  },
+  "homepage": "https://github.com/iIEkoT/hino-api#readme"
 }

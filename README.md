@@ -1,0 +1,1 @@
+A simple package for Hino's Discord bot API
