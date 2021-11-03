@@ -15,9 +15,9 @@ let API = {
     "name": "Hino API",
     "url": "https://hino.gq/api",
     "license": "MIT",
-    "version": "3.3",
+    "version": "4.0-ALFA-RELEASED",
     "shards_count": "2",
-    "latency": `1 => ${1 * Date.now(latency({ms: "connection", fetchSpeed: true})) - 1635899729742 - 12354 / 1 || latency({ms: true, websocket: true, connect: false})}ms`,
+    "latency": `${1 * Date.now(latency({ms: "connection", fetchSpeed: true})) - 1635899729742 - 12354 / 1 || latency({ms: true, websocket: true, connect: false})}ms`,
     "shards": {
         "shard1": {
             "name": "Shard 1",
@@ -39,7 +39,7 @@ let API = {
     "client": {
         "name": "Hino#7027",
         "banner": "https://i.imgur.com/wCicMxx.png",
-        "version": "6.6",
+        "version": "6.7",
         "color": "#f2af66"
     },
     "handler": {
