@@ -4,7 +4,7 @@
     "dotenv": "^10.0.0"
   },
   "name": "hino.api",
-  "version": "4.0.8",
+  "version": "5.0.1",
   "description": "Package for Hino's Discord bot API",
   "main": "index.js",
   "scripts": {

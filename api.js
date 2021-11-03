@@ -1,9 +1,23 @@
+async function latency() {
+
+this.latency = async(ms, websocket, connect) => {
+        ms.fetch(websocket.connection, speed => {
+            websocket.speed("1 - 100")
+            speed.fetch("1 - 100", ms, {URL: "https://hino.gq/api"})
+        })
+    }
+    if(this.latency === "0") {
+        return latency === "API offline"
+    }
+}
+
 let API = {
-    "name": "Hino_API",
+    "name": "Hino API",
     "url": "https://hino.gq/api",
     "license": "MIT",
     "version": "3.3",
     "shards_count": "2",
+    "latency": `1 => ${1 * Date.now(latency({ms: "connection", fetchSpeed: true})) - 1635899729742 - 12354 / 1 || latency({ms: true, websocket: true, connect: false})}ms`,
     "shards": {
         "shard1": {
             "name": "Shard 1",
@@ -23,9 +37,14 @@ let API = {
         }
     },
     "client": {
+        "name": "Hino#7027",
         "banner": "https://i.imgur.com/wCicMxx.png",
         "version": "6.6",
         "color": "#f2af66"
+    },
+    "handler": {
+        "name": "Def Ocean",
+        "description": `Def Ocean is an SDK/API handler for handling SDK's/API's and export them to other files and other npm manager options`
     },
     "error": {
         "device": {
