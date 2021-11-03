@@ -28,6 +28,7 @@ shard2| get info about shard2|
 |client| get API's client options|
 error| get API's errors type|
 | latency | get API's latency ping|
+
 #
 
 
@@ -72,6 +73,26 @@ API.shards.shard2
 
 #
 
+### Shard 3
+
+```js
+const { API } = require("hino.api");
+
+API.shards.shard3
+```
+
+| Options| Description|
+| - | - |
+| name |  get shard's name |
+| version | get shard's version |
+| users | get shard's users **soon**|
+| servers | get shard's servers **soon**|
+| type | get shard's type|
+| path | get shard's file path |
+| database | get database's type |
+
+#
+
 ### Client
 
 ```js
@@ -97,6 +118,11 @@ API.handler
 | - | - |
 | name | get handler's name |
 | description | get handler's description|
+| version | get handler's version|
+| process | get handler's process type|
+| websocket | get handler's websocket type|
+| type | get handler's type|
+| module | get handler's module type | 
 
 #
 
