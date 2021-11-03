@@ -1,5 +1,6 @@
 # A simple package for Hino's Discord bot API.
-#
+
+
 ### Installation
 ```sh
 npm i hino.api
@@ -27,9 +28,12 @@ shard2| get info about shard2|
 |client| get API's client options|
 error| get API's errors type|
 | latency | get API's latency ping|
+#
+
 
 ## Shards
-#
+
+
 ### Shard 1
 
 ```js
