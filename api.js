@@ -23,6 +23,13 @@ let API = {
     "license": "MIT",
     "version": "4.0",
     "latency": `${1 * Date.now(latency({ms: "connection", fetchSpeed: true})) - 1635899729742 - 12354 / 1 || latency({ms: true, websocket: true, connect: false})}ms`,
+    "connect": async function(connect, disconnect) {
+        return connect,
+        async(connect) => {
+            await connect.dispawn(API, {URL: API.url})
+        },
+        console.log(`${API.name} connected!`)
+    },
     "shards": {
         "count": "4",
         "shard1": {

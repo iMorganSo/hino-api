@@ -10,7 +10,7 @@ npm i hino.api
 ```js
 const { API } = require("hino.api");
 
-console.log(API)
+API.connect();
 ```
 
 ### Options
@@ -40,7 +40,9 @@ error| get API's errors type|
 ```js
 const { API } = require("hino.api");
 
-API.shards.shard1
+API.shards.shard1;
+
+API.connect();
 ```
 
 | Options| Description|
@@ -59,7 +61,9 @@ API.shards.shard1
 ```js
 const { API } = require("hino.api");
 
-API.shards.shard2
+API.shards.shard2;
+
+API.connect();
 ```
 
 | Options| Description|
@@ -78,7 +82,9 @@ API.shards.shard2
 ```js
 const { API } = require("hino.api");
 
-API.shards.shard3
+API.shards.shard3;
+
+API.connect();
 ```
 
 | Options| Description|
@@ -97,7 +103,10 @@ API.shards.shard3
 
 ```js
 const { API } = require("hino.api");
-API.client
+
+API.client;
+
+API.connect();
 ```
 | Options| Description|
 | - | - |
@@ -112,7 +121,10 @@ API.client
 
 ```js
 const { API } = require("hino.api");
-API.handler
+
+API.handler;
+
+API.connect();
 ```
 | Options| Description|
 | - | - |
