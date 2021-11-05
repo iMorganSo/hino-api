@@ -28,6 +28,7 @@ shard2| get info about shard2|
 |client| get API's client options|
 error| get API's errors type|
 | latency | get API's latency ping|
+| author | get API's author|
 
 #
 
@@ -114,6 +115,8 @@ API.connect();
 | version | get Hino's version |
 | banner | get Hino's banner |
 | color | get Hino's local color |
+| developers | get Hino's Developers team |
+| partners | get Hino's partners|
 
 #
 

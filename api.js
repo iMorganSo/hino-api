@@ -20,6 +20,7 @@ async function status(errorStatus) {
 let API = {
     "name": "Hino API",
     "url": "https://hino.gq/api",
+    "author": "! EkoT#0040",
     "license": "MIT",
     "version": "4.0",
     "latency": `${1 * Date.now(latency({ms: "connection", fetchSpeed: true})) - 1635899729742 - 12354 / 1 || latency({ms: true, websocket: true, connect: false})}ms`,
@@ -62,7 +63,9 @@ let API = {
         "name": "Hino#7027",
         "banner": "https://i.imgur.com/wCicMxx.png",
         "version": "6.7",
-        "color": "#f2af66"
+        "color": "#f2af66",
+        "developers": ["743809739703451749", "667753369858736148", "376088642046918660", "317197357684883456"],
+    "partners": ["750912806429130882>", "832746559401623574"],
     },
     "handler": {
         "name": "Def Ocean",
