@@ -22,7 +22,7 @@ let API = {
     "url": "https://hino.gq/api",
     "author": "! EkoT#0040",
     "license": "MIT",
-    "version": "4.0",
+    "version": "4.1",
     "latency": `${1 * Date.now(latency({ms: "connection", fetchSpeed: true})) - 1635899729742 - 12354 / 1 || latency({ms: true, websocket: true, connect: false})}ms`,
     "connect": async function(connect, disconnect) {
         return connect,
@@ -32,14 +32,14 @@ let API = {
         console.log(`${API.name} connected!`)
     },
     "shards": {
-        "count": "4",
+        "count": "3",
         "shard1": {
             "name": "Shard 1",
             "version": "1.0",
             "users": "soon",
             "servers": "soon",
             "type": "Default shard",
-            "path": "./api/shards/shard1"
+            "path": "./api.js#line/36"
         },
         "shard2": {
             "name": "Shard 2",
@@ -47,7 +47,7 @@ let API = {
             "users": "soon",
             "servers": "soon",
             "type": "Second shard",
-            "path": "./api/shards/shard2"
+            "path": "./api.js#line/44"
         },
         "shard3": {
             "name": "Shard3",
@@ -55,25 +55,25 @@ let API = {
             "users": "soon",
             "servers": "soon",
             "type": "Data shard",
-            "path": "./api/data/shards/shard1",
+            "path": "./api.js#line/52",
             "database": "Local mongo"
         }
     },
     "client": {
         "name": "Hino#7027",
-        "banner": "https://i.imgur.com/wCicMxx.png",
-        "version": "6.7",
-        "color": "#f2af66",
+        "banner": "https://i.imgur.com/bp3TSi7.png",
+        "version": "7.0",
+        "color": "#dfdce2",
         "developers": ["743809739703451749", "667753369858736148", "376088642046918660", "317197357684883456"],
-    "partners": ["750912806429130882>", "832746559401623574"],
+    "partners": ["750912806429130882", "832746559401623574"],
     },
     "handler": {
         "name": "Def Ocean",
         "description": `Def Ocean is an SDK/API handler for handling SDK's/API's and export them to other files and other npm manager options`,
-        "version": "8.4",
+        "version": "8.5",
         "process": "ENV_DIRECT_PROCESS",
         "websocket": "PREF_WEBSOCKET_DISPAWN_304",
-        "type": "ASK/API handle Supporter",
+        "type": "SDK/API handle Supporter",
         "module": "PROCESS_MODULE_PROTYPE"
     },
     "error": {
@@ -97,7 +97,7 @@ let API = {
         "disconnectErrors": {
             "APIdisconnected": "API disconnected, $ echo err api disconnected R?{API.disconnectMessage}D $$ err",
             "websocketDisconnected": "WebSocket disconnected, $ echo err websocket disconnected R?{API.websocket.status('DISCONNECTED').sendMessage()}D $$ err",
-            "handler Disconnected": "$ echo err handler disconnected R?{API.fetch('handler').name || API.handler.name || API.handler.undefined}D $$ disconnected"
+            "handler Disconnected": "$ echo err handler disconnected R?{API.fetch('handler').name || API.handler.name}D $$ disconnected"
         },
         "clientErrors": {
             "undefinedGuild": "This guild are undefined by local",
@@ -107,6 +107,11 @@ let API = {
             "notResponding": "Hino are doesn't responding right now try later"
         }
      } 
+}
+
+//errors:
+if(API.version < "3.0") {
+    console.log(API.error.APIerrors.unsupportedVersion)
 }
 
 module.exports = API

@@ -96,7 +96,7 @@ API.connect();
 | servers | get shard's servers **soon**|
 | type | get shard's type|
 | path | get shard's file path |
-| database | get database's type |
+| database | get database type |
 
 #
 
