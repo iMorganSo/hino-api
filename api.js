@@ -12,8 +12,9 @@ this.latency = async(ms, websocket, connect) => {
 }
 
 async function status(errorStatus) {
+    errorStatus
     return errorStatus => {
-        errorStatus("404", "HIGHER")
+        errorStatus("403", "HIGHER")
     }
 } 
 
@@ -22,7 +23,7 @@ let API = {
     "url": "https://hino.gq/api",
     "author": "! EkoT#0040",
     "license": "MIT",
-    "version": "4.1",
+    "version": "4.2",
     "latency": `${1 * Date.now(latency({ms: "connection", fetchSpeed: true})) - 1635899729742 - 12354 / 1 || latency({ms: true, websocket: true, connect: false})}ms`,
     "connect": async function(connect, disconnect) {
         return connect,
@@ -50,7 +51,7 @@ let API = {
             "path": "./api.js#line/44"
         },
         "shard3": {
-            "name": "Shard3",
+            "name": "Shard 3",
             "version": "1.0",
             "users": "soon",
             "servers": "soon",
@@ -62,56 +63,20 @@ let API = {
     "client": {
         "name": "Hino#7027",
         "banner": "https://i.imgur.com/bp3TSi7.png",
-        "version": "7.0",
+        "version": "7.1",
         "color": "#dfdce2",
         "developers": ["743809739703451749", "667753369858736148", "376088642046918660", "317197357684883456"],
     "partners": ["750912806429130882", "832746559401623574"],
     },
     "handler": {
         "name": "Def Ocean",
-        "description": `Def Ocean is an SDK/API handler for handling SDK's/API's and export them to other files and other npm manager options`,
-        "version": "8.5",
-        "process": "ENV_DIRECT_PROCESS",
+        "description": `Def Ocean is an API handler for handling API's and export them to other files and other npm manager options`,
+        "version": "9.0",
+        "process": "PROCESS_ENGINER_THROW",
         "websocket": "PREF_WEBSOCKET_DISPAWN_304",
-        "type": "SDK/API handle Supporter",
+        "type": "API handle Supporter",
         "module": "PROCESS_MODULE_PROTYPE"
     },
-    "error": {
-        "device": {
-            "unsupported": "Your device are unsupported to use Hino's API",
-            "noBase": "You don't have an much base to use Hino's API, required base: 6MB",
-            "unsupportedOs": "Your device os are unsupported by default, supported os: ['windows', 'linux', 'macOS', 'iphone', 'android']"
-        },
-        "node": {
-            "unsupportedNode": "Unsupported node version, the required node is: 16 or higher"
-        },
-        "handler": {
-            "unsupportedHandler": "Unsupported handler, (required handler is: \"Def Ocean\")"
-        },
-        "status": {
-            "errorCodeStatus": `Error code with status: ${status}`
-        },
-        "APIerrors": {
-            "unsupportedVersion": "unsupported API version, required version is: 3.0 or higher"
-        }, 
-        "disconnectErrors": {
-            "APIdisconnected": "API disconnected, $ echo err api disconnected R?{API.disconnectMessage}D $$ err",
-            "websocketDisconnected": "WebSocket disconnected, $ echo err websocket disconnected R?{API.websocket.status('DISCONNECTED').sendMessage()}D $$ err",
-            "handler Disconnected": "$ echo err handler disconnected R?{API.fetch('handler').name || API.handler.name}D $$ disconnected"
-        },
-        "clientErrors": {
-            "undefinedGuild": "This guild are undefined by local",
-            "undefinedUser": "This user are undefined by local",
-            "notDeveloper": "You are not developer",
-            "undefinedDeveloper": "This developer are undefined by client catcher",
-            "notResponding": "Hino are doesn't responding right now try later"
-        }
-     } 
-}
-
-//errors:
-if(API.version < "3.0") {
-    console.log(API.error.APIerrors.unsupportedVersion)
 }
 
 module.exports = API
