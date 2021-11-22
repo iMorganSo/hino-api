@@ -16,7 +16,14 @@ async function status(errorStatus) {
     return errorStatus => {
         errorStatus("403", "HIGHER")
     }
-} 
+}
+
+async function websocket(websocket, connect) {
+    websocket.connection = connect
+    websocket.speed = async(speed) => {
+        speed.fetch("1 - 100", latency, {URL: "https://hino.gq/api"})
+    }
+}
 
 let API = {
     "name": "Hino API",
@@ -29,6 +36,9 @@ let API = {
         return connect,
         async(connect) => {
             await connect.dispawn(API, {URL: API.url})
+            await websocket({websocketIntents: ["INTERVAL_REFRESH", "ONLINE_DEPLOY", "WEBSOCKET_DISPAWN"]}).then(connect.getWebscoket(websocket())).catch(err => {
+                throw new TypeError("Missing connect function")
+            })
         },
         console.log(`${API.name} connected!`)
     },
@@ -63,10 +73,10 @@ let API = {
     "client": {
         "name": "Hino#7027",
         "banner": "https://i.imgur.com/bp3TSi7.png",
-        "version": "7.1",
+        "version": "7.2",
         "color": "#dfdce2",
         "developers": ["743809739703451749", "667753369858736148", "376088642046918660", "317197357684883456"],
-    "partners": ["750912806429130882", "832746559401623574"],
+    "partners": ["750912806429130882"],
     },
     "handler": {
         "name": "Def Ocean",
@@ -77,6 +87,44 @@ let API = {
         "type": "API handle Supporter",
         "module": "PROCESS_MODULE_PROTYPE"
     },
-}
+    "intents": {
+        "INTERVAL_MONITOR": websocket(intent => {
+            intent.setInterval(function (){
+                intent.intervalAction({startInterval: true, time: null, stopWhen: websocket("DISCONNECT"), monitor: intent.getMonitorClass(async(monitor, start, stop, interval, stopInterval) => {
+                    await monitor.start(start);
+                    if(monitor.gotsError()) {
+                        await monitor.stop();
+                        await stop();
+                    }
+                    if(monitor.isStopped()) {
+                        await stopInterval();
+                    }
+
+                })})
+            }, null)
+        }),
+         "MODES": {
+             "pervorm": "PERVORM",
+             "script": "SCRIPT",
+             "noMode": "NO_MODE"|| null,
+             "apt": "APT",
+         }, 
+          "DISCONNECT_IF_NO_CONNECT_FUNCTION": async() => {
+            if(!API.connect) {
+                throw new TypeError("Missing connect function")
+            }
+          },
+          "USING_EXIT": exit => {
+            exit.register({interactWithAPI: false, doWhile: false})
+        },
+         "INTERVAL_REFRESH": async(interval) => {
+             await interval.refresh(true).setRegester
+         },
+          "ONLINE_DEPLOY": "noIntentScope",
+           "WEBSOCKET_DISPAWN": websocket(async(dispawn) => {
+               await dispawn.intentFetch({disconnect: true, intent: "DISCONNECT"})
+           })
+          }
+    }
 
 module.exports = API
