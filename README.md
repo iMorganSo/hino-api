@@ -1,4 +1,4 @@
-# A simple package for Hino's Discord bot API.
+# A simple package for interacting with Hino's API.
 
 
 ### Installation
