@@ -20,7 +20,7 @@ let API = {
     "license": "MIT",
     "version": "4.5",
     "latency": `${latency() /*0 is the latency() connection between the DB and the connection callback({response: "200"})*/ /* If latency isn't 0 = failure API connection*/}ms`,
-    "connect": function(url = "https://dlist.dev/api", callback) {
+    "connect": function(url = "https://hino.gq/api", callback) {
         callback = callback || function(callback) {
             if(callback === undefined) {
                 callback = async(calling) => {
