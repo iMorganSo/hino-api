@@ -1,21 +1,9 @@
+let XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 function latency() {
-
-this.latency = async(ms, websocket, connect) => {
-        ms.fetch(websocket.connection, speed => {
-            websocket.speed("1 - 100")
-            speed.fetch("1 - 100", ms, {URL: "https://hino.gq/api"})
-        })
-    }
-    if(this.latency === "0") {
-        return latency === "API offline"
-    }
-}
-
-async function status(errorStatus) {
-    errorStatus
-    return errorStatus => {
-        errorStatus("403", "HIGHER")
-    }
+    let start = new Date().getTime(Date.now());
+    let latency = 0;
+    let result = start * latency
+return result
 }
 
 async function websocket(websocket, connect) {
@@ -30,17 +18,35 @@ let API = {
     "url": "https://hino.gq/api",
     "author": "! EkoT#0040",
     "license": "MIT",
-    "version": "4.3",
-    "latency": `${1 * Date.now(latency({ms: "connection", fetchSpeed: true})) - 1635899729742 - 1235461 || latency({ms: true, websocket: true, connect: false})}ms`,
-    "connect": async function(connect, disconnect) {
-        return connect,
-        async(connect) => {
-            await connect.dispawn(API, {URL: API.url})
-            await websocket({websocketIntents: ["INTERVAL_REFRESH", "ONLINE_DEPLOY", "WEBSOCKET_DISPAWN"]}).then(connect.getWebscoket(websocket())).catch(err => {
-                throw new TypeError("Missing connect function", err)
-            })
-        },
-        console.log(`${API.name} connected!`)
+    "version": "4.5",
+    "latency": `${latency() /*0 is the latency() connection between the DB and the connection callback({response: "200"})*/ /* If latency isn't 0 = failure API connection*/}ms`,
+    "connect": function(url = "https://dlist.dev/api", callback) {
+        callback = callback || function(callback) {
+            if(callback === undefined) {
+                callback = async(calling) => {
+                    await calling.callback(request, response => {
+                        return response, response.data;
+                    })
+                    return callback()
+                }
+            };
+            return callback;
+        };
+        let request = new XMLHttpRequest();
+        request.open("GET", url);
+        request.addEventListener("load", function() {
+            if (request.status !== 200) {
+                return callback(new Error("Failed to connect to API, retry again later"));
+            };
+            callback(null, request.responseText);
+        });
+        let status;
+            status = status => {
+                correct_connection = {valueOf: connection => connection.status, response: "200", currentStatus: "OK", request: ["RESPONSED_AT_URI_STATUS", "RESENT_AT_FAILURE_CONNECTION"]};
+                return correct_connection
+            }
+        request.send();
+        return new callback({data: {request: request, response: new callback(response => response.data), connect: status()}});
     },
     "shards": {
         "count": "3",
@@ -50,7 +56,7 @@ let API = {
             "users": "soon",
             "servers": "soon",
             "type": "Default shard",
-            "path": "./api.js#line/36"
+            "path": "./api.js#line/66"
         },
         "shard2": {
             "name": "Shard 2",
@@ -58,7 +64,7 @@ let API = {
             "users": "soon",
             "servers": "soon",
             "type": "Second shard",
-            "path": "./api.js#line/44"
+            "path": "./api.js#line/74"
         },
         "shard3": {
             "name": "Shard 3",
@@ -66,23 +72,23 @@ let API = {
             "users": "soon",
             "servers": "soon",
             "type": "Data shard",
-            "path": "./api.js#line/52",
-            "database": "Local mongo"
+            "path": "./api.js#line/82",
+            "database": "CleanUI DB"
         }
     },
     "client": {
         "name": "Hino#7027",
         "banner": "https://i.imgur.com/bp3TSi7.png",
-        "version": "7.4",
+        "version": "7.5",
         "color": "#dfdce2",
         "color2": "#bac8d4",
         "developers": ["743809739703451749", "667753369858736148", "376088642046918660", "317197357684883456"],
-    "partners": ["750912806429130882", "697163985480581200"],
+    "partners": ["697163985480581200", "750912806429130882"],
     },
     "handler": {
         "name": "Def Ocean",
-        "description": `Def Ocean is an API handler for handling API's and export them to other files and other npm manager options`,
-        "version": "9.1",
+        "description": `Def Ocean is an API handler for handling APIs and export them to other files and other NPM manager options`,
+        "version": "2x.1.0",
         "process": "PROCESS_ENGINER_THROW",
         "websocket": "PREF_WEBSOCKET_DISPAWN_304",
         "type": "API handle Supporter",
@@ -111,11 +117,6 @@ let API = {
              "apt": "APT",
              "RealTimePerformance":"REALTIMEPERFORMANCE" || "RTP",
          }, 
-          "DISCONNECT_IF_NO_CONNECT_FUNCTION": async() => {
-            if(!API.connect) {
-                throw new TypeError("Missing connect function")
-            }
-          },
           "USING_EXIT": exit => {
             exit.register({interactWithAPI: false, doWhile: false})
         },
@@ -123,9 +124,9 @@ let API = {
              await interval.refresh(true).setRegester
          },
           "ONLINE_DEPLOY": async(deploy) => {
-              await deploy.editConfig({value: "ONLINE_DEPLOY", setTrue: true, intent: "ONLINE_DEPLOY"}).saveValue(true).setTimer(null);
+              await deploy.editConfig({value: "ONLINE_DEPLOY", confirm: true, intent: "ONLINE_DEPLOY"}).saveValue(true).setTimer(null);
               deploy.saveConfig({value: "ONLINE_DEPLOY", save: true, intent: "ONLINE_DEPLOY"}).catch(err => {
-                  deploy.catchError(err, console.error);
+                  deploy.catchError(err, console.error(err));
               })
           },
            "WEBSOCKET_DISPAWN": websocket(async(dispawn) => {
@@ -133,5 +134,4 @@ let API = {
            })
           }
     }
-
 module.exports = API

@@ -1,6 +1,6 @@
 {
   "name": "hino.api",
-  "version": "6.0.1",
+  "version": "6.0.2",
   "description": "Package for Hino's Discord bot API",
   "main": "index.js",
   "scripts": {
@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/iIEkoT/hino-api/issues"
   },
-  "homepage": "https://github.com/iIEkoT/hino-api#readme"
+  "homepage": "https://github.com/iIEkoT/hino-api#readme",
+  "dependencies": {
+    "xmlhttprequest": "^1.8.0"
+  }
 }
