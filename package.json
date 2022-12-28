@@ -1,5 +1,23 @@
 {
   "dependencies": {
     "axios": "^1.2.1"
-  }
+  },
+  "name": "hino.api",
+  "description": "```sh\r npm i hino.api\r ```",
+  "version": "1.0.2OF",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iEkoT/hino.api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iEkoT/hino-api/issues"
+  },
+  "homepage": "https://github.com/iEkoT/hino-api#readme"
 }

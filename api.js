@@ -1,4 +1,5 @@
-import axios from "axios";
+const axios = require("axios");
+
 const API = {
     version: "v1.0",
     url: "https://hino.tk/api",
@@ -19,6 +20,6 @@ const API = {
     const time = (finish - start) / 1000;
      console.log(time);
     }
-};
+}
 
-API;
+module.exports = API;
