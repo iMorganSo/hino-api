@@ -1,27 +1,5 @@
 {
-  "name": "hino.api",
-  "version": "6.0.2",
-  "description": "Package for Hino's Discord bot API",
-  "main": "index.js",
-  "scripts": {
-    "test": "api-run"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/iIEkoT/hino-api.git"
-  },
-  "keywords": [
-    "api",
-    "hino"
-  ],
-  "author": "!ekot",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/iIEkoT/hino-api/issues"
-  },
-  "homepage": "https://github.com/iIEkoT/hino-api#readme",
   "dependencies": {
-    "axios": "^0.25.0",
-    "xmlhttprequest": "^1.8.0"
+    "axios": "^1.2.1"
   }
 }
