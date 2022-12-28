@@ -1,1 +1,4 @@
-const API = require("./api.js");
+const API = require("./api");
+module.exports.API = require("./api.js");
+
+API.connect()
